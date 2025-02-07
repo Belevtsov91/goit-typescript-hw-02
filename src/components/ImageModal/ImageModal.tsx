@@ -4,7 +4,12 @@ import styles from './ImageModal.module.css';
 
 ReactModal.setAppElement('#root');
 
-const ImageModal = ({ image, onClose }) => {
+interface ImageModalProps {
+  image: string;
+  onClose: () => void;
+}
+
+const ImageModal: React.FC<ImageModalProps> = ({ image, onClose }) => {
   return (
     <ReactModal isOpen={!!image} onRequestClose={onClose} className={styles.modal} overlayClassName={styles.overlay}>
       <img src={image} alt="Large view" />
